@@ -16,15 +16,15 @@ public class TelaDeAlteracaoDeLivro {
 
             if (livro != null) {
 
-                System.out.println("Informe o nome do livro :");
+                System.out.println("Informe o novo nome do livro :");
                 String nome = scanner.next();
                 livro.setNome(nome);
 
-                System.out.println("Digite o ano do livros:");
+                System.out.println("Digite o novo ano do livro:");
                 String ano = scanner.next();
                 livro.setAno(Integer.valueOf(ano));
 
-                System.out.println("Informe a editora do livro :");
+                System.out.println("Informe a nova editora do livro :");
                 String editora = scanner.next();
                 livro.setEditora(editora);
 
@@ -33,8 +33,8 @@ public class TelaDeAlteracaoDeLivro {
                 livro.setPaginas(paginas);
 
                 System.out.println("Informe a edição do livro :");
-                String edicao = scanner.next();
-                livro.setNome(edicao);
+                Integer edicao = Integer.valueOf(scanner.next());
+                livro.setEdicao(edicao);
 
 
                 em.getTransaction().begin();
