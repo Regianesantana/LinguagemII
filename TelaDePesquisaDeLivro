@@ -15,7 +15,7 @@ public class TelaDePesquisaDeLivro {
         EntityManager em = emf.createEntityManager();
 
         try {
-            List<Livro> livros = em.createQuery("SELECT u FROM Livro u WHERE u.nome LIKE :nome OR u.editora LIKE :editora OR u.paginas LIKE :paginas OR u.ano LIKE :ano OR u.edicao LIKE :edicao", Livro.class)
+            List<Livro> livros = em.createQuery("SELECT l FROM Livro l WHERE l.nome LIKE :nome OR l.editora LIKE :editora OR l.paginas LIKE :paginas OR l.ano LIKE :ano OR l.edicao LIKE :edicao", Livro.class)
                     .setParameter("nome", "%" + criterio + "%")
                     .setParameter("editora", "%" + criterio + "%")
                     .setParameter("paginas", "%" + criterio + "%")
@@ -26,14 +26,14 @@ public class TelaDePesquisaDeLivro {
             if (!livros.isEmpty()) {
                 System.out.println("Livros encontrados:");
 
-                for (Livro u : livros) {
-                    System.out.println("ID: " + u.getId() + " | Título: " + u.getNome() + " | Editora: " + u.getEditora() + " | Paginas: " + u.getPaginas() + " | Ano: " + u.getAno() + " | Edicao: " + u.getEdicao());
+                for (Livro l : livros) {
+                    System.out.println("ID: " + l.getId() + " | Título: " + l.getNome() + " | Editora: " + l.getEditora() + " | Paginas: " + l.getPaginas() + " | Ano: " + l.getAno() + " | Edicao: " + l.getEdicao());
                 }
             } else {
                 System.out.println("Não foram encontrados livros com o critério de pesquisa fornecido.");
             }
         } catch (Exception e) {
-            System.out.println("Erro ao tentar pesquisar os lirvos.");
+            System.out.println("Erro ao tentar pesquisar os livros.");
         } finally {
             em.close();
             emf.close();
